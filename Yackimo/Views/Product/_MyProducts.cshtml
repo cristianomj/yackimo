@@ -1,0 +1,38 @@
+﻿@model IPagedList<Product>
+
+<div id="productList">
+    <div class="pagedList" data-otf-target="#productList">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+        PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+    @foreach (var item in Model)
+    {
+        @:Added on @Html.DisplayFor(modelItem => item.DataCreated)
+        <div class="product">
+            <h4>@Html.ActionLink(item.Name, "Edit", new { id = item.ProductId })
+                - @Html.DisplayFor(modelItem => item.Description)
+                <span class="float-right">Views @Html.DisplayFor(modelItem => item.Views)
+                </span>
+            </h4>
+            <p>
+                subcategory - @Html.ActionLink(item.Category, "Search", "Home", new { searchTerm = item.Category }, null)
+            </p>
+            @* Product Picture *@
+            <a href="@Url.Action("Edit", new { id = item.ProductId })">
+                <img width="75" height="75"
+                src="@Url.Action("GetImage", "Product", new { id = item.ProductId })" />
+            </a>
+            <div class="float-right">
+                @using (Html.BeginForm("Delete", "Product"))
+                {
+                    @Html.Hidden("ProductId", item.ProductId)
+                    <input type="submit" value="Remove" />
+                }
+            </div>
+        </div>
+    }
+    <div class="bottonPager" data-otf-target="#productList">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+        PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+</div>

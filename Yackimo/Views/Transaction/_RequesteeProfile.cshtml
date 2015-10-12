@@ -1,0 +1,25 @@
+﻿@model Yackimo.Models.UserProfile
+
+<div class="requestorProfile">
+    <div>
+        <h4>@Html.DisplayFor(model => model.UserName)</h4>
+
+        @*@Html.Partial("_RequesteeProduct", Model.Products.OrderByDescending(p => p.Views))*@
+
+    </div>
+</div>
+
+
+@*<div>
+    <h3>My Products</h3>
+
+    <a href="#openModal">Offer Product</a>
+
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <h2>My Products</h2>
+
+        </div>
+    </div>
+</div>*@

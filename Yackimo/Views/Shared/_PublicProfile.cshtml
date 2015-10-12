@@ -1,0 +1,47 @@
+﻿@model Yackimo.Models.UserProfile
+
+<fieldset>
+    <legend>UserProfile</legend>
+
+    <section class="contact">
+        <header>
+            <h3>User Information</h3>
+        </header>
+        <p>
+            <span>
+                <img width="50" height="50"
+                    src="@Url.Action("GetImage", "Profile", new { id = Model.UserId })" />
+            </span>
+        </p>
+        <p>
+            <span class="label">@Html.DisplayNameFor(model => model.FirstName)</span>
+            <span>@Model.FirstName</span>
+        </p>
+        <p>
+            <span class="label">@Html.DisplayNameFor(model => model.LastName)</span>
+            <span>@Model.LastName</span>
+        </p>
+    </section>
+
+    <section class="contact">
+        <header>
+            <h3>Account Information</h3>
+        </header>
+        <p>
+            <span class="label">@Html.DisplayNameFor(model => model.UserName)</span>
+            <span>@Model.UserName</span>
+        </p>
+        <p>
+            <span class="label">@Html.DisplayNameFor(model => model.Email)</span>
+            <span>@Model.Email</span>
+        </p>
+        <p>
+            <span class="label">Trade</span>
+            <span>@Html.ActionLink(Model.UserName + "'s list", "PublicList", "Product", new { id = Model.UserId }, null)</span>
+            @if(Model.UserId != WebSecurity.GetUserId(User.Identity.Name))
+            {
+                <span>@Html.ActionLink("Message this guy", "Compose", "Messages", new { id = Model.UserId }, null)</span>
+            }
+        </p>
+    </section>
+</fieldset>

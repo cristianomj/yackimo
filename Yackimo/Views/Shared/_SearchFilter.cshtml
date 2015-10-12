@@ -1,0 +1,24 @@
+﻿<form method="get" action="@Url.Action("Search", "Home")">
+
+    <input type="search" name="searchTerm" placeholder="Search...Someone has it."
+                            data-otf-autocomplete="@Url.Action("AutoComplete", "Home")" />
+    <input type="submit" value="Go" class="goButton" />
+</form>
+
+@*@using (Html.BeginForm("Search", "Home", FormMethod.Get)) {
+                            <input type="search" name="searchTerm" placeholder="Search. Someone has it..."
+                                    data-otf-autocomplete="@Url.Action("AutoComplete", "Home")"/>
+                            <input type="submit" value="Go"/>
+                    }*@
+
+@*@using (Ajax.BeginForm(actionName: "Search", controllerName: "Home", routeValues: null,
+                        ajaxOptions: new AjaxOptions
+                        {
+                            HttpMethod = "get",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "productList"
+                        }))
+                    {
+                        <input type="search" name="searchTerm" />
+                        <input type="submit" value="Go" />
+                    }*@

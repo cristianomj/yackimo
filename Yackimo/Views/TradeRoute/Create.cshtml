@@ -1,0 +1,34 @@
+﻿@model Yackimo.Models.TradeRouteViewModel
+
+@{
+    ViewBag.Title = "TradeRoute";
+}
+
+<h2>TradeRoute</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>TradeRouteViewModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RouteName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RouteName)
+            @Html.ValidationMessageFor(model => model.RouteName)
+        </div>
+
+        @Html.HiddenFor(model => model.ProductId)
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

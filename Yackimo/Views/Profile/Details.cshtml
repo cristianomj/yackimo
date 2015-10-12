@@ -1,0 +1,9 @@
+﻿@model Yackimo.Models.UserProfile
+
+@{
+    ViewBag.Title = Model.UserName;
+}
+
+<h2>@Model.UserName's Profile</h2>
+
+@Html.Partial("_PublicProfile")

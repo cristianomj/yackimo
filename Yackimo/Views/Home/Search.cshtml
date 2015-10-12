@@ -1,0 +1,18 @@
+﻿@model IPagedList<Product>
+
+@{
+    ViewBag.Title = "Yackimo | Search";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <h4>@ViewBag.NotFound</h4>
+            <h2>@ViewBag.Message</h2>
+            <h4>@ViewBag.Showing</h4>
+            <hr />
+        </div>
+    </section>
+}
+
+@Html.Partial("_SearchResults", Model)

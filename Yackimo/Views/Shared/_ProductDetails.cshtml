@@ -1,0 +1,36 @@
+﻿@model Yackimo.Models.ProductViewModel
+
+<div class="product">
+    <h4>
+        @*Product Information: Product Name/ Owner Name/ Product Description*@
+
+        @Html.ActionLink(Model.ProductName, "Details", "Product", new { id = Model.ProductId }, null)
+        {@Html.ActionLink(Model.OwnerName, "Details", "Profile", new { username = Model.OwnerName }, new { @class = "username", title = "Profile" })}
+        - @Html.DisplayFor(modelModel => Model.Description)
+
+        @*Trading Options*@
+
+        @if (WebSecurity.IsAuthenticated && User.Identity.Name != Model.OwnerName)
+        {
+            <span class="float-right">@Html.ActionLink("Trade", "TradeRequest", "Transaction", new { id = Model.ProductId }, null)</span> 
+            <span class="float-right">@Html.ActionLink("New Route", "Create", "TradeRoute", new { id = Model.ProductId }, null)|</span>       
+        }
+        @if (ViewBag.routes != null && WebSecurity.IsAuthenticated && User.Identity.Name != Model.OwnerName)
+        {
+            <span class="float-right">@Html.DropDownList("routes", "Add to...")|</span>  
+        }
+    </h4>
+
+    <p>
+        <p>
+            {subcategory} - @Html.ActionLink(Model.Category, "Search", "Home", new { searchTerm = Model.Category }, null)
+        </p>
+    </p>
+    @*
+        Product Picture
+    *@
+    <a href="@Url.Action("Details", "Product", new { id = Model.ProductId })">
+        <img width="75" height="75"
+            src="@Url.Action("GetImage", "Product", new { id = Model.ProductId })" />
+    </a>
+</div>

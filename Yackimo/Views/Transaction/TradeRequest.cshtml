@@ -1,0 +1,57 @@
+﻿@model Yackimo.Models.TransactionViewModel
+
+@{
+    ViewBag.Title = "Trade Request";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <h2>@ViewBag.Title</h2>
+        </div>
+    </section>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Trade Request Form</legend>
+
+        @Html.HiddenFor(model => model.RequestedProduct)
+        @Html.HiddenFor(model => model.Requestor.UserId)
+        @Html.HiddenFor(model => model.Requestee.UserId)
+
+        <hr />
+
+
+
+
+        
+
+        <p>
+            <input type="submit" value="Trade" />
+        </p>
+
+    </fieldset>
+}
+
+@section Scripts {
+}
+
+
+<div class="float-left">
+    <div class="editor-label">
+        @Html.Partial("_RequesteeProfile", Model.Requestee)
+                <img width="75" height="75"
+                src="@Url.Action("GetImage", "Product", new { id = Model.RequestedProduct })" />
+    </div>
+</div>
+
+<div class="float-right">
+    <div class="editor-label">
+        @Html.Partial("_RequestorProfile", Model.Requestor)
+    </div>
+</div>

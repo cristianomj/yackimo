@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Category>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h3>@ViewBag.Title</h3>
+
+<ul>
+
+    @foreach (var category in Model)
+    {
+        <li>@Html.ActionLink(category.Name, "Details", "Category", new { id = category.CategoryId }, null)</li>
+    }
+
+</ul>

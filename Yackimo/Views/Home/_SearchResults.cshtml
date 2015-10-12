@@ -1,0 +1,26 @@
+﻿@model IPagedList<Product>
+
+<div id="productList">
+    @foreach (var item in Model)
+    {
+        <div class="product">
+            <h4>@Html.ActionLink(item.Name, "Details", "Product", new { id = item.ProductId }, null)
+                - @Html.DisplayFor(modelModel => item.Description)
+                    <span class="float-right">@Html.ActionLink("Trade", "TradeRequest", "Transaction", new { id = item.ProductId }, null)</span>
+            </h4>
+            @* Search in product category *@
+            <p>
+                subcategory - @Html.ActionLink(item.Category, "Search", "Home", new { searchTerm = item.Category }, null)
+            </p>
+            @*  Product Picture *@
+            <a href="@Url.Action("Details", "Product", new { id = item.ProductId })">
+                <img width="75" height="75"
+        src="@Url.Action("GetImage", "Product", new { id = item.ProductId })" />
+            </a>
+        </div>
+    }
+    <div class="bottomPager float-right" data-otf-target="#productList">
+        @Html.PagedListPager(Model, page => Url.Action("Search", new { page }),
+        PagedListRenderOptions.Minimal)
+    </div>
+</div>

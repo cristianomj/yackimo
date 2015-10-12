@@ -1,0 +1,13 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = "Trade";
+}
+
+<h2>Product ID: @Model.ProductId :: Owner's ID: @Model.UserId</h2>
+
+<a href="@Url.Action("Details", "Product", new { id = Model.ProductId })">
+    <img width="75" height="75"
+            src="@Url.Action("GetImage", "Product", new { id = Model.ProductId })" />
+</a>
+

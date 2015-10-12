@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Department>
+
+<div id="departments">
+    <h3>Departments</h3>
+
+    <ul>
+
+        @foreach (var department in Model)
+        {
+            <li>@Html.ActionLink(department.Name, "Details", "Department", new { id = department.DepartmentId }, null)</li>
+        }
+
+    </ul>
+
+</div>

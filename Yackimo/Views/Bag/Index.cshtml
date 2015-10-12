@@ -1,0 +1,9 @@
+﻿@model Bag
+
+@{
+    ViewBag.Title = "My Bag";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Partial("_BagProducts", Model.Products.OrderByDescending(p => p.UserId))

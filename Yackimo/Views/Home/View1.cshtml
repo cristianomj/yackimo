@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ProductViewModel>
+
+@{
+    ViewBag.Title = "View1";
+}
+
+<div id="productList">
+    @foreach (var item in Model)
+    {
+        <a href="#openModal">
+            <img width="75" height="75"
+                    src="@Url.Action("GetImage", "Product", new { id = item.ProductId })" />
+        </a>
+        
+        <div id="openModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Product Information</h2>
+                <h3>
+                    <img width="75" height="75"
+                    src="@Url.Action("GetImage", "Product", new { id = item.ProductId })" />
+                    <strong>@item.ProductName, @item.Category</strong></h3>
+            </div>
+        </div>
+    }
+</div>

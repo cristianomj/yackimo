@@ -1,0 +1,50 @@
+﻿@model Yackimo.Models.UserProfile
+
+@{
+    ViewBag.Title = "My Profile";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset>
+    <legend>UserProfile</legend>
+
+    <section class="contact">
+        <header>
+            <h3>User Information</h3>
+        </header>
+        <p>
+            <span>
+                <a href="@Url.Action("Details", "Profile", new { username = Model.UserName })">
+                    <img width="150" height="150"
+                    src="@Url.Action("GetImage", "Profile", new { id = Model.UserId })" />
+                </a>
+            </span>
+        </p>
+        <p>
+            <span class="label">@Html.DisplayNameFor(model => model.FirstName)</span>
+            <span>@Model.FirstName</span>
+        </p>
+        <p>
+            <span class="label">@Html.DisplayNameFor(model => model.LastName)</span>
+            <span>@Model.LastName</span>
+        </p>
+    </section>
+
+    <section class="contact">
+        <header>
+            <h3>Account Information</h3>
+        </header>
+        <p>
+            <span class="label">@Html.DisplayNameFor(model => model.UserName)</span>
+            <span>@Model.UserName</span>
+        </p>
+        <p>
+            <span class="label">@Html.DisplayNameFor(model => model.Email)</span>
+            <span>@Model.Email</span>
+        </p>
+    </section>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Update Profile", "Edit")
+    </p>

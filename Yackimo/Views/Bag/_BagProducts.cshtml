@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Product>
+
+@{
+    var id = 0;
+}
+
+@foreach (var product in Model)
+{
+    if (product.UserId == id)
+    {
+        <div>
+            <div class="product-wrapper">
+
+                <a href="@Url.Action("Details", new { id = product.ProductId })">
+                    <img width="150" height="150"
+                    src="@Url.Action("GetImage", "Product", new { id = product.ProductId })" />
+                </a>
+
+                <div><strong>@product.Name</strong></div>
+
+            </div>
+        </div>
+    }
+    else
+    {
+        <hr />
+        @product.UserId
+
+        <div>
+            <div class="product-wrapper">
+
+                <a href="@Url.Action("Details", new { id = product.ProductId })">
+                    <img width="150" height="150"
+                    src="@Url.Action("GetImage", "Product", new { id = product.ProductId })" />
+                </a>
+
+                <div><strong>@product.Name</strong></div>
+
+            </div>
+        </div>
+    }
+    
+    id = product.UserId;
+}

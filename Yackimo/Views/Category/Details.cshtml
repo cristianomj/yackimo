@@ -1,0 +1,13 @@
+﻿@model Category
+
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset>
+    <legend>Category</legend>
+
+    @Html.Partial("_Products", Model.Products)
+</fieldset>

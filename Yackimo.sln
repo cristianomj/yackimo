@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yackimo", "Yackimo\Yackimo.csproj", "{1297E1E4-C1DC-4D83-9C20-133CA62FD7CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yackimo.Tests", "Yackimo.Tests\Yackimo.Tests.csproj", "{2D6E98E4-69AC-4972-AE51-62D957A57FCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1297E1E4-C1DC-4D83-9C20-133CA62FD7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1297E1E4-C1DC-4D83-9C20-133CA62FD7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1297E1E4-C1DC-4D83-9C20-133CA62FD7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1297E1E4-C1DC-4D83-9C20-133CA62FD7CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D6E98E4-69AC-4972-AE51-62D957A57FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6E98E4-69AC-4972-AE51-62D957A57FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6E98E4-69AC-4972-AE51-62D957A57FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6E98E4-69AC-4972-AE51-62D957A57FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

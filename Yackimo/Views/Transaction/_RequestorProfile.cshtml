@@ -1,0 +1,47 @@
+﻿@model Yackimo.Models.UserProfile
+
+<div class="requestorProfile">
+    <div>
+        <h4>@Html.DisplayFor(model => model.UserName)</h4>
+
+        <a href="#openModal">Suck Dick</a>
+
+
+
+        @*@Html.Partial("_TransactionProductList", Model.Products.OrderByDescending(p => p.Views))*@
+    </div>
+</div>
+
+<div id="openModal" class="modalDialog">
+
+    <div>
+		<a href="#close" title="Close" class="close">X</a>
+
+        @{
+            var categories = Model.Products.Select(p => p.Category).Distinct();
+        }
+
+        <h3>Select Category</h3>
+        <br>
+        @foreach(var item in categories)
+        {
+            <a href="http://www.google.com">@item</a>
+        }
+
+	</div>
+
+</div>
+
+@*<div>
+    <h3>My Products</h3>
+
+    <a href="#openModal">Offer Product</a>
+
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <h2>My Products</h2>
+            
+        </div>
+    </div>
+</div>*@

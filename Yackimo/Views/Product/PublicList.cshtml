@@ -1,0 +1,19 @@
+﻿@model IPagedList<Product>
+
+@{
+    ViewBag.Title = "PublicList";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <h2>
+                @Html.ActionLink((string)(ViewBag.UserName + "'s list"), "Details", "Profile", new { username = ViewBag.UserName }, null)
+            </h2>
+            <hr />
+        </div>
+    </section>
+}
+@Html.Partial("_ProductList", Model)
+
+

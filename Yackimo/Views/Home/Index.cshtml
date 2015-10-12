@@ -1,0 +1,97 @@
+﻿@model IPagedList<Product>
+
+@{
+    ViewBag.Title = "Yackimo - Home Page";
+}
+
+@*@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <h2>@ViewBag.Message</h2>
+            <hr />
+        </div>
+    </section>
+}
+
+@Html.Partial("_FeaturedProducts", Model)*@
+
+<div id="myCarousel" class="carousel slide span5">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="Images/audi.jpg" alt="" style="width: 500px; height: 285px">
+            <div class="carousel-caption">
+                <h4>First Roast Beef label</h4>
+            </div>
+        </div>
+        <div class="item">
+            <img src="Images/roastbeef.jpg" alt="" style="width: 500px; height: 285px">
+            <div class="carousel-caption">
+                <h4>Second Roast Beef label</h4>
+            </div>
+        </div>
+        <div class="item">
+            <img width="500" height="285" src="Images/pikachu.png" alt="" style="width: 500px; height: 285px">
+            <div class="carousel-caption">
+                <h4>Third Roast Beef label</h4>
+                <p>If Fitch had seen this he'd tell me a story about a roast beef his mom made.</p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+<div class="container">
+    <ul class="thumbnails">
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="#" class="thumbnail">
+                    <img data-src="holder.js/300x200" alt="Product Image" src="~/Images/roastbeef.jpg" /></a>
+                <div class="caption">
+                    <h3>Roast beef</h3>
+                    <p>
+                        Yummy roast beef.
+                    <br />
+                        If Fitch had seen this he'd tell me a story about a roast beef his mom made.
+                    </p>
+                    <button class="btn btn-custom" type="button">Trade Now</button>
+                    <a class="btn" href="#">Add to cart <i class="icon-shopping-cart"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<ul class="thumbnails">
+    <li class="span4">
+        <div class="caption">
+            <h5>Caption above</h5>
+        </div>
+        <a class="thumbnail" href="#">
+            <img alt="" src="~/Images/roastbeef.jpg">
+        </a>
+    </li>
+    <li class="span4">
+        <a class="thumbnail" href="#">
+            <img alt="" src="~/Images/roastbeef.jpg">
+        </a>
+        <div class="caption">
+            <h5>Caption below</h5>
+        </div>
+    </li>
+</ul>
+
+@section scripts {
+    <script>
+        $('.carousel').carousel({
+        })
+    </script>
+}
+
+

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Manage Account";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<div>
+    <br />
+    @Html.ActionLink("My Profile", "Index", "Profile", routeValues: null, htmlAttributes: new { @class = "profile", title = "Profile Details" })
+    <br />
+    @Html.ActionLink("My Products", "Index", "Product", routeValues: null, htmlAttributes: new { @class = "products", title = "Manage Products" })
+    <br />
+    @Html.ActionLink("Manage Password", "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Password Settings" })
+    <hr />
+</div>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Yackimo.Models.Message>
+
+@{
+    ViewBag.Title = "Inbox";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SenderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if(item.isRead == false)
+    {
+        <tr class="unread">
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>            
+                @if(item.Content.Length < 20)
+                {
+                    @Html.ActionLink(item.Content + "...", "Read", "Messages", new { id = item.MessageId }, null)
+                }
+                else
+                {
+                    @Html.ActionLink(item.Content.Substring(0, 20) + "...", "Read", "Messages", new { id = item.MessageId }, null)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MessageId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MessageId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MessageId })
+            </td>*@
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>            
+                @if(item.Content.Length < 20)
+                {
+                    @Html.ActionLink(item.Content + "...", "Read", "Messages", new { id = item.MessageId }, null)
+                }
+                else
+                {
+                    @Html.ActionLink(item.Content.Substring(0, 20) + "...", "Read", "Messages", new { id = item.MessageId }, null)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MessageId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MessageId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MessageId })
+            </td>*@
+        </tr>
+    }
+}
+
+</table>
